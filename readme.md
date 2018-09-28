@@ -11,8 +11,7 @@ Check out [our website](https://www.yellicode.com) for more.
 
 ## Using the Angular package
 ### Prerequisites
-In order to run a code generation template, you must have the CLI installed (@yellicode/cli) globally and have a valid *codegenconfig.json* file in your working directory. Please refer to the [installation instructions](https://www.yellicode.com/docs/installation) and the [quick start](https://www.yellicode.com/docs/quickstart) for more.
-
+In order to run a code generation template, you must have the Yellicode CLI installed globally (`npm install -g @yellicode/cli`) and have a valid *codegenconfig.json* file in your working directory. Please refer to the [installation instructions](https://www.yellicode.com/docs/installation) and the [quick start](https://www.yellicode.com/docs/quickstart) for more.
 
 ### Installation
 Open a terminal/command prompt in your working directory and install this package as a dev dependency:
@@ -23,7 +22,8 @@ npm install @yellicode/angular --save-dev
 
 ### Sample template
 The following sample generates a simple Angular component file named *my-component*. For simplicity, the component name in this example is static.
-Refer to the [Yellicode website](https://www.yellicode.com) on how to build a real model-driven app.
+
+For a more sophisticated example, check out the article [Build your own Angular code generator](https://www.yellicode.com/blog/angular-code-generator).
 
 ```ts
   import { TypeScriptWriter } from '@yellicode/typescript';
