@@ -23,7 +23,7 @@ npm install @yellicode/angular --save-dev
 ### Sample template
 The following sample generates a simple Angular component file named *my-component*. For simplicity, the component name in this example is static.
 
-For a more sophisticated example, check out the article [Build your own Angular code generator](https://www.yellicode.com/blog/angular-code-generator).
+For a more sophisticated example, check out the article [Build your own Angular code generator](https://www.yellicode.com/blog/build-your-own-angular-code-generator).
 
 ```ts
   import { TypeScriptWriter } from '@yellicode/typescript';
