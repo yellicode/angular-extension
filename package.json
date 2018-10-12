@@ -17,11 +17,11 @@
     "url": "github:yellicode/angular-extension.git"
   },
   "dependencies": {
-    "@yellicode/templating": "^0.3.3",
-    "@yellicode/typescript": "^0.1.8"
+    "@yellicode/templating": "^1.0.0",
+    "@yellicode/typescript": "^1.0.0"
   },
   "devDependencies": {
-    "rollup": "^0.50.0"
+    "rollup": "^0.66.6"
   },
   "scripts": {
     "build:es5": "tsc",
