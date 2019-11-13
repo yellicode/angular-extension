@@ -12,13 +12,14 @@
   "module": "dist/es5/angular.js",
   "es2015": "dist/es6/angular.js",
   "types": "dist/types/angular.d.ts",
+  "sideEffects": false,
   "repository": {
     "type": "git",
     "url": "github:yellicode/angular-extension.git"
   },
   "dependencies": {
-    "@yellicode/templating": "^1.0.0",
-    "@yellicode/typescript": "^1.0.0"
+    "@yellicode/core": "^1.2.1",
+    "@yellicode/typescript": "^1.8.0"
   },
   "devDependencies": {
     "rollup": "^0.66.6"

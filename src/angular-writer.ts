@@ -1,6 +1,6 @@
 import { ComponentConfig, ChangeDetectionStrategy, ViewEncapsulation } from './directive-config';
 import { ModuleConfig } from './module-config';
-import { TextWriter } from '@yellicode/templating';
+import { TextWriter } from '@yellicode/core';
 import { TypeScriptWriter } from '@yellicode/typescript';
 
 

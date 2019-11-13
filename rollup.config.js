@@ -5,5 +5,5 @@ export default {
     name: '@yellicode/angular',
     file: 'dist/bundles/angular.umd.js'
   },
-  external: ['@yellicode/core', '@yellicode/templating'] // https://github.com/rollup/rollup/wiki/Troubleshooting#treating-module-as-external-dependency
+  external: ['@yellicode/core', '@yellicode/typescript'] // https://github.com/rollup/rollup/wiki/Troubleshooting#treating-module-as-external-dependency
 }
