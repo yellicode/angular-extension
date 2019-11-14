@@ -38,7 +38,7 @@ export class AngularWriter {
   */
   public static writeModuleDecorator(writer: TypeScriptWriter, config: ModuleConfig): void {
     writer.writeDecoratorCodeBlock('NgModule', () => {
-      AngularWriter.writeComponentConfig(writer, config);
+      AngularWriter.writeModuleConfig(writer, config);
     });
   }
 
