@@ -1,3 +1,4 @@
+import { ApplicationConfig } from './application-config';
 import { ComponentConfig, ChangeDetectionStrategy, ViewEncapsulation } from './directive-config';
 import { ModuleConfig } from './module-config';
 import { TextWriter } from '@yellicode/core';
@@ -10,7 +11,7 @@ import { TypeScriptWriter } from '@yellicode/typescript';
 export class AngularWriter {
 
   /**
-  * Writes a full Angular '@Component' class decorator using the provided configuration.   
+  * Writes a full Angular '@Component' class decorator using the provided configuration.
   */
   public static writeComponentDecorator(writer: TypeScriptWriter, config: ComponentConfig): void {
     writer.writeDecoratorCodeBlock('Component', () => {
@@ -34,7 +35,7 @@ export class AngularWriter {
   }
 
   /**
-  * Writes a full Angular '@NgModule' class decorator using the provided configuration.   
+  * Writes a full Angular '@NgModule' class decorator using the provided configuration.
   */
   public static writeModuleDecorator(writer: TypeScriptWriter, config: ModuleConfig): void {
     writer.writeDecoratorCodeBlock('NgModule', () => {
@@ -58,6 +59,20 @@ export class AngularWriter {
   }
 
   /**
+   * Writes Angular application configuration.
+   */
+  public static writeApplicationConfig(writer: TextWriter, config: ApplicationConfig): void {
+    const keys = Object.keys(config);
+    keys.forEach((key, index) => {
+      writer.writeIndent();
+      const value = config[key];
+      writer.write(`${key}: ${AngularWriter.stringifyAppConfigProperty(key, value)}`);
+      if (index < keys.length - 1) writer.write(',');
+      writer.writeEndOfLine();
+    });
+  }
+
+  /**
   * Writes a route configuration for the specified component, with the specified route path.
   */
   public static writeRoute(writer: TextWriter, route: { path: string, componentName: string }) {
@@ -67,6 +82,23 @@ export class AngularWriter {
     writer.writeLine(`component: ${route.componentName}`);
     writer.decreaseIndent();
     writer.writeLine('},');
+  }
+
+  private static stringifyAppConfigProperty(key: string, value: any): string {
+    switch (key) {
+      case 'providers': // done as multiline
+        return AngularWriter.stringifyObjectArray(value);
+      default:
+        break;
+    }
+    if (typeof (value) == typeof (true)) {
+      return value ? 'true' : 'false';
+    }
+    if (value instanceof Array) {
+      return AngularWriter.stringifyStringArray(value);
+    }
+    // The value is a string
+    else return `'${value}'`;
   }
 
   private static stringifyModuleProperty(key: string, value: any): string {
@@ -94,6 +126,7 @@ export class AngularWriter {
       case 'encapsulation':
         return `ViewEncapsulation.${ViewEncapsulation[value]}`;
       case 'entryComponents':
+      case 'imports':
       case 'providers':
       case 'viewProviders':
         return AngularWriter.stringifyObjectArray(value);
@@ -126,5 +159,5 @@ export class AngularWriter {
     // {'key1': 'value1', 'key2': 'value2'}
     const keys = Object.keys(value);
     return `{ ${keys.map(k => `'${k}': '${value[k]}'`).join(', ')} }`;
-  } 
+  }
 }

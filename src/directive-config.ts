@@ -136,6 +136,8 @@ export interface DirectiveConfig {
      */
     // providers?: Provider[]; // <!-- original
     providers?: string[]; // <!-- codegen friendly
+    // imports?: Array<Type<any> | ModuleWithProviders | any[]>; // <!-- original
+    imports?: string[]; // <!-- codegen friendly
     /**
      * The name or names that can be used in the template to assign this directive to a variable.
      * For multiple names, use a comma-separated string.
@@ -152,6 +154,15 @@ export interface DirectiveConfig {
     queries?: {
         [key: string]: any;
     };
+     /**
+     * Angular components marked as `standalone` do not need to be declared in an NgModule. Such
+     * components directly manage their own template dependencies (components, directives, and pipes
+     * used in a template) via the imports property.
+     *
+     * More information about standalone components, directives, and pipes can be found in [this
+     * guide](guide/standalone-components).
+     */
+    standalone?: boolean;
 }
 
 /**

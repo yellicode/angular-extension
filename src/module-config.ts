@@ -5,8 +5,8 @@
  */
 export interface ModuleConfig {
     /**
-   * Added for Yellicode code generation to avoid TypeScript error TS7017.
-   */
+    * Added for Yellicode code generation to avoid TypeScript error TS7017.
+    */
     [key: string]: any;
     /**
      * The set of injectable objects that are available in the injector
@@ -146,7 +146,7 @@ export interface ModuleConfig {
      * }
      * ```
      */
-    // exports?: Array<Type<any> | any[]>; // <!-- original      
+    // exports?: Array<Type<any> | any[]>; // <!-- original
     exports?: string[]; // <!-- codegen friendly
 
     /**
@@ -163,14 +163,14 @@ export interface ModuleConfig {
      *
      * @see [Entry Components](guide/entry-components)
      */
-    // entryComponents?: Array<Type<any> | any[]>;   
+    // entryComponents?: Array<Type<any> | any[]>;
     entryComponents?: string[]; // <!-- codegen friendly
     /**
      * The set of components that are bootstrapped when
      * this module is bootstrapped. The components listed here
      * are automatically added to `entryComponents`.
      */
-    // bootstrap?: Array<Type<any> | any[]>; // <!-- original      
+    // bootstrap?: Array<Type<any> | any[]>; // <!-- original
     bootstrap?: string[]; // <!-- codegen friendly
 
     /**
@@ -183,7 +183,7 @@ export interface ModuleConfig {
      * @security When using one of `NO_ERRORS_SCHEMA` or `CUSTOM_ELEMENTS_SCHEMA`
      * you must ensure that allowed elements and properties securely escape inputs.
      */
-    // schemas?: Array<SchemaMetadata | any[]>; // <!-- original      
+    // schemas?: Array<SchemaMetadata | any[]>; // <!-- original
     schemas?: string[]; // <!-- codegen friendly
 
     /**
