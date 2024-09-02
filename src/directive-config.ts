@@ -262,4 +262,5 @@ export interface ComponentConfig extends DirectiveConfig {
      * overridden in compiler options.
      */
     preserveWhitespaces?: boolean;
+    schemas?: string[]; // <!-- codegen friendly
 }

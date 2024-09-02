@@ -127,6 +127,7 @@ export class AngularWriter {
         return `ViewEncapsulation.${ViewEncapsulation[value]}`;
       case 'entryComponents':
       case 'imports':
+      case 'schemas':
       case 'providers':
       case 'viewProviders':
         return AngularWriter.stringifyObjectArray(value);
